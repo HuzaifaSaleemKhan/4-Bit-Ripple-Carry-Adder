@@ -1,0 +1,17 @@
+*** SPICE deck for cell 1_Bit_Full_Adder{sch} from library SP20_VlsiCEP_FA17_BCE_004_016
+*** Created on Wed Jun 23, 2021 20:05:06
+*** Last revised on Wed Jun 23, 2021 21:02:48
+*** Written on Wed Jun 23, 2021 22:16:46 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** TOP LEVEL CELL: 1_Bit_Full_Adder{sch}
+
+* Spice Code nodes in cell cell '1_Bit_Full_Adder{sch}'
+vdd vdd 0 DC 5
+vA A  0 pulse (0 5 0 1n 1n 10n 20n)
+vB B  0 pulse (0 5 0 1n 1n 10n 20n)
+vCin Cin  0 pulse (0 5 0 1n 1n 10n 20n)
+.trans 1n 100n
+.include C:\Program Files (x86)\Electric\C5_models
+.END

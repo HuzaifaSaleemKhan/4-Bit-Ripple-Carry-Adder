@@ -1,0 +1,24 @@
+*** SPICE deck for cell AND3{sch} from library SP20_VlsiCEP_FA17_BCE_004_016
+*** Created on Wed Jun 23, 2021 17:47:27
+*** Last revised on Wed Jun 23, 2021 22:18:33
+*** Written on Wed Jun 23, 2021 22:18:39 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: AND3{sch}
+Mnmos-4@0 net@16 B net@42 gnd N L=0.6U W=3U
+Mnmos-4@1 Output A net@16 gnd N L=0.6U W=3U
+Mnmos-4@2 net@42 C gnd gnd N L=0.6U W=3U
+Mpmos-4@0 Output B vdd vdd P L=0.6U W=3U
+Mpmos-4@1 Output A vdd vdd P L=0.6U W=3U
+Mpmos-4@2 Output C vdd vdd P L=0.6U W=3U
+
+* Spice Code nodes in cell cell 'AND3{sch}'
+vdd vdd 0 DC 5
+vA A  0 pulse (0 5 0 1n 1n 10n 20n)
+vB B  0 pulse (0 5 0 1n 1n 10n 20n)
+.trans 1n 100n
+.include C:\Program Files (x86)\Electric\C5_models.txt
+.END

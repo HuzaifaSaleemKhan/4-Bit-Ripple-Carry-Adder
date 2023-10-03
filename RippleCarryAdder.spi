@@ -1,0 +1,36 @@
+*** SPICE deck for cell RippleCarryAdder{sch} from library SP20_VlsiCEP_FA17_BCE_004_016
+*** Created on Wed Jun 23, 2021 20:40:28
+*** Last revised on Wed Jun 23, 2021 21:03:22
+*** Written on Thu Jun 24, 2021 09:14:09 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+*CMOS/BULK-NWELL (PRELIMINARY PARAMETERS)
+.OPTIONS NOMOD DEFL=3UM DEFW=3UM DEFAD=70P DEFAS=70P LIMPTS=1000
++ITL5=0 RELTOL=0.01 ABSTOL=500PA VNTOL=500UV LVLTIM=2
++LVLCOD=1
+.MODEL N NMOS LEVEL=1
++KP=60E-6 VTO=0.7 GAMMA=0.3 LAMBDA=0.05 PHI=0.6
++LD=0.4E-6 TOX=40E-9 CGSO=2.0E-10 CGDO=2.0E-10 CJ=.2MF/M^2
+.MODEL P PMOS LEVEL=1
++KP=20E-6 VTO=0.7 GAMMA=0.4 LAMBDA=0.05 PHI=0.6
++LD=0.6E-6 TOX=40E-9 CGSO=3.0E-10 CGDO=3.0E-10 CJ=.2MF/M^2
+.MODEL DIFFCAP D CJO=.2MF/M^2
+
+*** SUBCIRCUIT SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder FROM CELL 1_Bit_Full_Adder{sch}
+.SUBCKT SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder A B Cin Cout Sum
+
+* Spice Code nodes in cell cell '1_Bit_Full_Adder{sch}'
+vdd vdd 0 DC 5
+vA A  0 pulse (0 5 0 1n 1n 10n 20n)
+vB B  0 pulse (0 5 0 1n 1n 10n 20n)
+vCin Cin  0 pulse (0 5 0 1n 1n 10n 20n)
+.trans 1n 100n
+.include C:\Program Files (x86)\Electric\C5_models.txt
+.ENDS SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder
+
+*** TOP LEVEL CELL: RippleCarryAdder{sch}
+X_1_Bit_Fu@0 Bo Ao Co net@0 So SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder
+X_1_Bit_Fu@1 B1 A1 net@0 net@13 S1 SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder
+X_1_Bit_Fu@2 B2 A2 net@13 net@23 S2 SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder
+X_1_Bit_Fu@3 B3 A3 net@23 C4 S3 SP20_VlsiCEP_FA17_BCE_004_016__1_Bit_Full_Adder
+.END
